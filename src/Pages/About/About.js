@@ -1,12 +1,9 @@
-// src/components/AboutPage.js
-
 import React, { useContext, useEffect, useState } from "react";
 import { useGetUserQuery, useUpdateUserMutation } from "../../redux/EndPoints/ApiEndpoints";
 import { UserAuth } from "../../Context/UserContext";
 
 function AboutPage() {
-    const { user,  } = useContext(UserAuth)
-    console.log(user);
+    const { user  } = useContext(UserAuth)
     const { data: getUser, isLoading } = useGetUserQuery(user?.uid);
     const [formData, setFormData] = useState({}); // Initialize formData with an empty object
     const [updateUser, { isLoading: isUpdating }] = useUpdateUserMutation(); // Use the mutation for updating user data

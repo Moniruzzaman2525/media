@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   useCommentPostMutation,
   useLikePostMutation,
 } from '../../redux/EndPoints/ApiEndpoints';
+import { UserAuth } from '../../Context/UserContext';
+import { Link } from 'react-router-dom';
 
 function Post({ post }) {
+  const { user } = useContext(UserAuth)
   const [likes, setLikes] = useState(post?.likes);
   const [comment, setComment] = useState('');
   console.log(post);
@@ -30,7 +33,7 @@ function Post({ post }) {
   const handleComment = async () => {
     try {
       const body = {
-        id: post._id, 
+        id: post._id,
         data: comment
       }
       const response = await commentPostMutation(body);
@@ -46,10 +49,16 @@ function Post({ post }) {
       <p className='text-xl py-2'>{post.text}</p>
       <img src={post.imageUrl} alt="Post" className="mb-2 w-[600px]" />
       <div className="flex justify-between">
-        <button onClick={handleLike} className="text-red-500">
+        {user ? <button onClick={handleLike} className="text-red-500">
           Like ({likes})
-        </button>
-        <button className="text-blue-500">Comment</button>
+        </button> : <button onClick={handleLike} className="text-red-500">
+          <Link to="/login
+            
+            ">Like </Link> ({likes})
+        </button>}
+        {user ? <button className="text-blue-500">Comment</button> : <button className="text-blue-500"><Link to="/login
+            
+            ">Comment</Link></button>}
       </div>
       <input
         type="text"
