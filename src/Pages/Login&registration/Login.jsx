@@ -60,7 +60,7 @@ const Login = () => {
         setUser(user);
         toast.success("Login Successful!");
         const data = {
-          displayName: user.displayName,
+          displayName: user?.displayName,
           uid: user.uid,
           email: user.email
         }

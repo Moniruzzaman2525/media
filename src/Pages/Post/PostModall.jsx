@@ -58,7 +58,7 @@ const PostModall = () => {
                             {/* <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" /> */}
                         </div>
                         <div>
-                            <h1>{user.displayName}</h1>
+                            <h1>{user?.displayName}</h1>
                             <div className='flex bg-gray-300 items-center justify-center gap-1 rounded-md h-[25px] w-[100px]'>
                                 <BiWorld />
                                 <h1>Public</h1>

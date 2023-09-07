@@ -15,10 +15,10 @@ function AboutPage() {
     useEffect(() => {
         if (getUser) {
             setFormData({
-                displayName: getUser.displayName || "",
-                email: getUser.email || "",
-                university: getUser.university || "",
-                address: getUser.address || "",
+                displayName: getUser?.displayName || "",
+                email: getUser?.email || "",
+                university: getUser?.university || "",
+                address: getUser?.address || "",
             });
         }
     }, [getUser]);

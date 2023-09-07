@@ -11,7 +11,7 @@ const CreatePost = () => {
                     {/* <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" /> */}
                 </div>
                 {user ? <div className='rounded-3xl bg-gray-100 w-full'>
-                    <label htmlFor="my_modal_6" className='text-start text-xl text-gray-500 ml-5 mt-1'>What's on your mind, {user.displayName}</label>
+                    <label htmlFor="my_modal_6" className='text-start text-xl text-gray-500 ml-5 mt-1'>What's on your mind, {user?.displayName}</label>
                 </div> : <div className='rounded-3xl bg-gray-100 w-full'>
                     <Link to='/login' htmlFor="my_modal_6" className='text-start text-xl text-gray-500 ml-5 mt-1'>What's on your mind</Link>
                 </div>}
